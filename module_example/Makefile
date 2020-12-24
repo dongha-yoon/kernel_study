@@ -1,4 +1,4 @@
-obj-m := module_example.o
+obj-m := module_example2.o
  
 PWD := $(shell pwd)
 KDIR := /lib/modules/$(shell uname -r)/build

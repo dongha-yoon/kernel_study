@@ -1,0 +1,1 @@
+cmd_/home/donghayoon/Kernel_study/module_example.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id  -T ./scripts/module-common.lds -o /home/donghayoon/Kernel_study/module_example.ko /home/donghayoon/Kernel_study/module_example.o /home/donghayoon/Kernel_study/module_example.mod.o;  true
