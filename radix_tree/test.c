@@ -3,9 +3,17 @@
 
 int main(){
     Root* rtree = init();
-    expand(rtree,300000);
-    printf("root: %d\n",rtree->height);
-    printf("rnode: %d\n",rtree->rnode->count);
-    visualize(rtree->rnode);
+
+    int n_input;
+    scanf("%d",&n_input);
+
+    unsigned long index,item;
+    for(int i=0;i<n_input;i++){
+        scanf("%ld %ld",&index,&item);
+        insert(rtree,index,item);
+    }
+
+    visualize(rtree->rnode,0);
+    printf("\n");
     erase(rtree->rnode);
 }
