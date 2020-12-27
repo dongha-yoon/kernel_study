@@ -86,14 +86,14 @@ void visualize(Node* nptr,int rcount){
         return;
     }
     printf("\n");
-    for(int rc=0;rc<rcount;rc++)printf(" ");printf("└ ");
+    for(int rc=0;rc<rcount;rc++)printf("    ");printf("└ ");
     printf("(%2d,%2d)",nptr->shift,nptr->offset);
     if(!(nptr->shift)){
         printf("    ");
         for(int i=0;i<max_slot;i++){
             long itm = nptr->slot[i].item;
             if(itm)
-                printf("%ld ",itm);
+                printf("0x%lx ",itm);
         }
     }        
     else{
