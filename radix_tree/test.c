@@ -15,5 +15,6 @@ int main(){
 
     visualize(rtree->rnode,0);
     printf("\n");
-    erase(rtree->rnode);
+    erase(rtree->rnode->slot[10].ptr);
+    visualize(rtree->rnode,0);
 }

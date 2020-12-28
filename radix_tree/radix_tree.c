@@ -67,9 +67,10 @@ int erase(Node* nptr){
         return 0;
     }
         
-    for(int i=0;i<max_slot;i++)
+    for(int i=0;i<max_slot;i++){
         erase(nptr->slot[i].ptr);
-
+    }
+        
     free(nptr);
     return 1;
 }
