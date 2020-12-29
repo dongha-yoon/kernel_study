@@ -15,6 +15,8 @@ int main(){
 
     visualize(rtree->rnode,0);
     printf("\n");
-    erase(rtree->rnode->slot[10].ptr);
-    visualize(rtree->rnode,0);
+    erase(rtree->rnode);
+    // printf("=====\n");
+    // insert(rtree,3000,22);
+    // visualize(rtree->rnode,0);
 }

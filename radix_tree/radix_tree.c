@@ -63,6 +63,7 @@ int erase(Node* nptr){
     if(!nptr)
         return 0;
     if(nptr->shift==0){
+        // printf("(%2d,%2d)-deleted\n",nptr->shift,nptr->offset);
         free(nptr);
         return 0;
     }
@@ -70,7 +71,7 @@ int erase(Node* nptr){
     for(int i=0;i<max_slot;i++){
         erase(nptr->slot[i].ptr);
     }
-        
+    // printf("(%2d,%2d)-deleted\n",nptr->shift,nptr->offset);
     free(nptr);
     return 1;
 }
