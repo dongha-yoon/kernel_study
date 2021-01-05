@@ -21,7 +21,6 @@ int insert(Root* r,unsigned long index,unsigned long item){
     Node* nptr = r->rnode;
     while(nptr->shift){
         int slot_ind = (index>>(nptr->shift))&(max_slot-1);
-        // printf("index: %ld, ptr_ind: %d\n",index,slot_ind);
         Node* prev = nptr;
         nptr = nptr->slot[slot_ind].ptr;
         if(!nptr){//if the slot is not allocated
@@ -32,19 +31,15 @@ int insert(Root* r,unsigned long index,unsigned long item){
             nptr->offset=slot_ind;
             nptr->parent=prev;
             nptr->shift =prev->shift-6;// 6 = log2(64)
-            // printf("new slot(%d,%d) allocated\n",nptr->shift,nptr->offset);
         }
     }
     nptr->slot[index&(max_slot-1)].item = item;
-    // printf("index: %ld, item_ind: %ld\n",index,index&(max_slot-1));
     nptr->count++;
 
     return 0;
 }
 int expand(Root* r,unsigned long index){
-    // printf("expand\n");
     while(index>max_index(r)){
-        // printf("loop ");
         Node* nroot         = (Node*)malloc(sizeof(Node));
         nroot->slot[0].ptr  = r->rnode;
         r->rnode->parent    = nroot;
