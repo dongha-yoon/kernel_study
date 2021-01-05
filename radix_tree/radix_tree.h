@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+typedef unsigned long Item_t;
+
 union contents{
     struct radix_tree_Node* ptr;
-    unsigned long item;
+    Item_t* item;
 };
 
 struct radix_tree_Node{
@@ -26,7 +28,9 @@ typedef struct radix_tree_Node  Node;
 
 Root* init();
 int insert(Root*,unsigned long,unsigned long);
-int expand(Root*,unsigned long);
+int extend(Root*);
+int delete(Root*,unsigned long);
+int shrink(Root*);
 int erase(Node*);
 unsigned long max_index(Root*);
 void visualize(Node*,int);
