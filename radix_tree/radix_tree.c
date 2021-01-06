@@ -95,7 +95,6 @@ int shrink(Root *r){
     return 0;
 }
 
-
 int erase(Node* nptr){
     // printf("erase\n");
     if(!nptr)
